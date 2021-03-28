@@ -8,6 +8,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import io.lewiscodes.bakebuddy.conversions.Converter;
+import io.lewiscodes.bakebuddy.conversions.Ingredient;
+import io.lewiscodes.bakebuddy.conversions.Unit;
+
 public class MainActivity extends AppCompatActivity {
 
     private Button calculateBtn;
@@ -31,11 +35,22 @@ public class MainActivity extends AppCompatActivity {
         unit = findViewById(R.id.unit);
         convertibleAmount = findViewById(R.id.convertible_amount);
 
+        results = findViewById(R.id.results);
+
         calculateBtn.setOnClickListener((v) -> {
-            Toast.makeText(this, "Calculate button pressed", Toast.LENGTH_SHORT).show();
+            results.setText(Double.toString(performCalculation()));
         });
         resetBtn.setOnClickListener((v) -> {
             Toast.makeText(this, "Reset button pressed", Toast.LENGTH_SHORT).show();
         });
+    }
+
+    private double performCalculation() {
+        return new Converter(
+                Ingredient.FLOUR,
+                Unit.CUP,
+                true,
+                2.0
+        ).getGramResultAsDouble();
     }
 }
