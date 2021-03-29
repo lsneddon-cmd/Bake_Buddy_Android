@@ -38,19 +38,19 @@ public class MainActivity extends AppCompatActivity {
         results = findViewById(R.id.results);
 
         calculateBtn.setOnClickListener((v) -> {
-            results.setText(Double.toString(performCalculation()));
+            results.setText(performCalculation());
         });
         resetBtn.setOnClickListener((v) -> {
             Toast.makeText(this, "Reset button pressed", Toast.LENGTH_SHORT).show();
         });
     }
 
-    private double performCalculation() {
+    private String performCalculation() {
         return new Converter(
                 Ingredient.FLOUR,
                 Unit.CUP,
                 true,
                 2.0
-        ).getGramResultAsDouble();
+        ).formattedResult();
     }
 }

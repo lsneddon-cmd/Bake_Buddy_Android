@@ -48,6 +48,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ingredient" />
 
+    <TextView
+        android:id="@+id/amout_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:labelFor="@+id/convertible_amount"
+        android:text="Amount to convert"
+        app:layout_constraintEnd_toStartOf="@+id/convertible_amount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@id/convertible_amount"/>
+
     <EditText
         android:id="@+id/convertible_amount"
         android:layout_width="wrap_content"
@@ -55,9 +65,8 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="numberDecimal"
-        android:text="Amount to convert"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/amout_label"
         app:layout_constraintTop_toBottomOf="@+id/unit" />
 
     <TextView

@@ -1,12 +1,12 @@
 package io.lewiscodes.bakebuddy.conversions;
 
 public enum Ingredient {
-    FLOUR("flour", 0.42268),
-    ALMOND_FLOUR("almond flour", 0.406),
-    RICE_FLOUR("rice flour", 0.68),
-    SUGAR("sugar", 0.8),
-    BUTTER("butter", 0.955),
-    COCOA("cocoa", 0.528);
+    FLOUR("Flour", 0.42268),
+    ALMOND_FLOUR("Almond flour", 0.406),
+    RICE_FLOUR("Rice flour", 0.68),
+    SUGAR("Sugar", 0.8),
+    BUTTER("Butter", 0.955),
+    COCOA("Cocoa", 0.528);
 
     private final String name;
     private final double weightRatio;
