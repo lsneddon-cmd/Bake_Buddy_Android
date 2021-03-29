@@ -1,5 +1,8 @@
 package io.lewiscodes.bakebuddy.conversions;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public enum Ingredient {
     FLOUR("Flour", 0.42268),
     ALMOND_FLOUR("Almond flour", 0.406),
@@ -16,7 +19,8 @@ public enum Ingredient {
         this.weightRatio = weightRatio;
     }
 
-    public String getName() {
+    @Override
+    public String toString() {
         return name;
     }
 

@@ -1,10 +1,14 @@
 package io.lewiscodes.bakebuddy;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,12 +21,13 @@ public class MainActivity extends AppCompatActivity {
     private Button calculateBtn;
     private Button resetBtn;
 
-    private EditText ingredient;
-    private EditText unit;
+    private Spinner ingredient;
+    private Spinner unit;
     private EditText convertibleAmount;
 
     private TextView results;
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +37,14 @@ public class MainActivity extends AppCompatActivity {
         resetBtn = findViewById(R.id.reset_btn);
 
         ingredient = findViewById(R.id.ingredient);
+        ArrayAdapter<Ingredient> adapterIngredients =
+                new ArrayAdapter<>(this,
+                        android.R.layout.simple_spinner_item,
+                        Ingredient.values());
+
+        adapterIngredients.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ingredient.setAdapter(adapterIngredients);
+
         unit = findViewById(R.id.unit);
         convertibleAmount = findViewById(R.id.convertible_amount);
 

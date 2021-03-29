@@ -19,7 +19,7 @@ public class Converter {
         double gramAsDouble = getGramResultAsDouble();
         String gramRes = new DecimalFormat("#.00").format(gramAsDouble);
         StringBuilder result = new StringBuilder();
-        result.append(ingredient.getName());
+        result.append(ingredient.toString());
         result.append("\n\t");
         result.append(amountToConvert);
         result.append(" ");
