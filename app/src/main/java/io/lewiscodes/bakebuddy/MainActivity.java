@@ -33,9 +33,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        calculateBtn = findViewById(R.id.calculate_btn);
-        resetBtn = findViewById(R.id.reset_btn);
+        initButtons();
+        initSpinners();
 
+        convertibleAmount = findViewById(R.id.convertible_amount);
+        results = findViewById(R.id.results);
+
+        calculateBtn.setOnClickListener((v) -> {
+            results.setText(performCalculation());
+        });
+        resetBtn.setOnClickListener((v) -> {
+            Toast.makeText(this, "Reset button pressed", Toast.LENGTH_SHORT).show();
+        });
+    }
+
+    private void initSpinners() {
         ingredient = findViewById(R.id.ingredient);
         ArrayAdapter<Ingredient> adapterIngredients =
                 new ArrayAdapter<>(this,
@@ -52,25 +64,22 @@ public class MainActivity extends AppCompatActivity {
                         Unit.values());
         adapterUnit.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         unit.setAdapter(adapterUnit);
+    }
 
-        convertibleAmount = findViewById(R.id.convertible_amount);
-
-        results = findViewById(R.id.results);
-
-        calculateBtn.setOnClickListener((v) -> {
-            results.setText(performCalculation());
-        });
-        resetBtn.setOnClickListener((v) -> {
-            Toast.makeText(this, "Reset button pressed", Toast.LENGTH_SHORT).show();
-        });
+    private void initButtons() {
+        calculateBtn = findViewById(R.id.calculate_btn);
+        resetBtn = findViewById(R.id.reset_btn);
     }
 
     private String performCalculation() {
+        Ingredient selectedIngredient = (Ingredient) ingredient.getSelectedItem();
+        Unit selectedUnit = (Unit) unit.getSelectedItem();
+        double amount = convertibleAmount != null ? Double.parseDouble(convertibleAmount.getText().toString()) : 0.0;
         return new Converter(
-                Ingredient.FLOUR,
-                Unit.CUP,
+                selectedIngredient,
+                selectedUnit,
                 true,
-                2.0
+                amount
         ).formattedResult();
     }
 }
