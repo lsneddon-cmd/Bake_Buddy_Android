@@ -1,7 +1,5 @@
 package io.lewiscodes.bakebuddy.conversions;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public enum Ingredient {
     FLOUR("Flour", 0.42268),
