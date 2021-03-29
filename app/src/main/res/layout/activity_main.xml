@@ -81,4 +81,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/convertible_amount" />
 
+    <RadioGroup
+        android:id="@+id/metric_system"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/results"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/convertible_amount" >
+        <RadioButton android:id="@+id/radio_imperial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Imperial"
+            android:checked="true"
+            android:onClick="onRadioButtonClicked"/>
+        <RadioButton android:id="@+id/radio_us_legal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="US Legal"
+            android:onClick="onRadioButtonClicked"/>
+    </RadioGroup>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

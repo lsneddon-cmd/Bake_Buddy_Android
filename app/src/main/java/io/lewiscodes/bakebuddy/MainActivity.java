@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,7 +25,10 @@ public class MainActivity extends AppCompatActivity {
 
     private Spinner ingredient;
     private Spinner unit;
+
     private EditText convertibleAmount;
+
+    private boolean isImperial = true;
 
     private TextView results;
 
@@ -78,8 +83,22 @@ public class MainActivity extends AppCompatActivity {
         return new Converter(
                 selectedIngredient,
                 selectedUnit,
-                true,
+                isImperial,
                 amount
         ).formattedResult();
+    }
+
+    public void onRadioButtonClicked(View view) {
+        boolean checked = ((RadioButton) view).isChecked();
+        switch(view.getId()) {
+            case R.id.radio_imperial:
+                if (checked)
+                    isImperial = true;
+                    break;
+            case R.id.radio_us_legal:
+                if (checked)
+                    isImperial = false;
+                    break;
+        }
     }
 }
