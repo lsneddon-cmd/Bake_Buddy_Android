@@ -17,7 +17,8 @@ public enum Unit {
         this.usLegalVolumeRate = usLegalVolumeRate;
     }
 
-    public String getName() {
+    @Override
+    public String toString() {
         return name;
     }
 

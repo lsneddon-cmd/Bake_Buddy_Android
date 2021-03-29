@@ -46,6 +46,13 @@ public class MainActivity extends AppCompatActivity {
         ingredient.setAdapter(adapterIngredients);
 
         unit = findViewById(R.id.unit);
+        ArrayAdapter<Unit> adapterUnit =
+                new ArrayAdapter<>(this,
+                        android.R.layout.simple_spinner_item,
+                        Unit.values());
+        adapterUnit.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        unit.setAdapter(adapterUnit);
+
         convertibleAmount = findViewById(R.id.convertible_amount);
 
         results = findViewById(R.id.results);

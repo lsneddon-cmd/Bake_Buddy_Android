@@ -23,7 +23,7 @@ public class Converter {
         result.append("\n\t");
         result.append(amountToConvert);
         result.append(" ");
-        result.append(unit.getName());
+        result.append(unit.toString());
         if (amountToConvert > 1.0) result.append("s");
         result.append("\n\t");
         result.append(gramRes);
